@@ -11,9 +11,16 @@ def menu(choices, title="Andrey's Menu", prompt="Choose your item: "):
         for a in range(1, len(choices) + 1):
             allowed_answers.append(str(a))
 
+        allowed_answers.append('X')
+        allowed_answers.append('x')
+
         if choice in allowed_answers:
-            answer = choices[int(choice) - 1]
-            break
+            if choice == 'X' or choice == 'x':
+                answer = ''
+                break
+            else:
+                answer = choices[int(choice) - 1]
+                break
         else:
             print("Enter number from 1 to", len(choices))
             answer = ''
