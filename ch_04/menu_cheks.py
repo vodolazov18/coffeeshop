@@ -5,8 +5,18 @@ def menu(choices, title="Andrey's Menu", prompt="Choose your item: "):
     for c in choices:
         print(number, c)
         number = number + 1
-    choice = input(prompt)
-    answer = choices[int(choice) -1]
+    while True:
+        choice = input(prompt)
+        allowed_answers = []
+        for a in range(1, len(choices) + 1):
+            allowed_answers.append(str(a))
+
+        if choice in allowed_answers:
+            answer = choices[int(choice) - 1]
+            break
+        else:
+            print("Enter number from 1 to", len(choices))
+            answer = ''
 
     return answer
 
